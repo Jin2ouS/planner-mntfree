@@ -2,6 +2,8 @@
 
 미래 시점에 원하는 월 현금흐름을 얻기 위해 필요한 투자 수익률(CAGR)을 계산해주는 금융 계산기 웹 애플리케이션입니다.
 
+**배포 사이트**: https://planner.mntfree.com
+
 ## 🎯 주요 기능
 
 ### 5단계 입력 프로세스
@@ -95,6 +97,8 @@ npm run preview
 ```
 
 ### GitHub Pages 배포
+
+배포 후 접속 URL: **https://planner.mntfree.com**
 
 ```bash
 npm run deploy

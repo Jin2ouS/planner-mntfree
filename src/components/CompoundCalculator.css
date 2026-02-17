@@ -1,0 +1,385 @@
+.compound .calculator-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .compound .calculator-content {
+    grid-template-columns: 450px 675px;
+    justify-content: center;
+  }
+}
+
+.compound .calculator-input-panel,
+.compound .calculator-result-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.compound .input-section {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.compound .section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.compound .rate-section-hint {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: -0.5rem 0 0.75rem;
+}
+
+.compound .rate-input-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.compound .rate-input-row-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: white;
+}
+
+.compound .rate-input-row-item:hover {
+  border-color: #9ca3af;
+}
+
+.compound .rate-input-row-item.selected {
+  border-color: #667eea;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+  box-shadow: 0 0 0 1px rgba(102, 126, 234, 0.2);
+}
+
+.compound .rate-row-label {
+  font-weight: 600;
+  color: #4a5568;
+  flex-shrink: 0;
+}
+
+.compound .rate-row-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.compound .input-wrapper-sm .form-input {
+  width: 70px;
+  min-width: 70px;
+  padding-right: 2rem;
+}
+
+.compound .rate-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.compound .input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.compound .input-wrapper .form-input {
+  padding-right: 2.5rem;
+  min-width: 100px;
+}
+
+.compound .form-input {
+  width: 120px;
+  padding: 0.625rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.compound .form-input[type="number"]::-webkit-inner-spin-button,
+.compound .form-input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.compound .form-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.compound .input-buttons {
+  position: absolute;
+  right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  z-index: 1;
+}
+
+.compound .input-btn {
+  width: 24px;
+  height: 18px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #6b7280;
+  font-size: 0.65rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
+  line-height: 1;
+}
+
+.compound .input-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+  color: #1f2937;
+}
+
+.compound .input-btn-up {
+  border-radius: 4px 4px 0 0;
+  border-bottom: none;
+}
+
+.compound .input-btn-down {
+  border-radius: 0 0 4px 4px;
+}
+
+.compound .input-suffix {
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.compound .period-input-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.compound .period-input-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.compound .period-input-label {
+  font-weight: 600;
+  color: #4a5568;
+  min-width: 3.5rem;
+}
+
+.compound .period-input-suffix {
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.compound .period-input-item .period-num {
+  width: 70px;
+}
+
+.compound .period-buttons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.compound .period-buttons-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.compound .period-buttons-row .period-btn {
+  flex: 1 1 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.compound .period-input-item .input-wrapper .form-input {
+  width: 80px;
+  min-width: 80px;
+  padding-right: 2rem;
+  font-size: 1rem;
+}
+
+.compound .unit-buttons,
+.compound .period-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.compound .unit-btn,
+.compound .period-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  background: white;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.compound .unit-btn:hover,
+.compound .period-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.compound .unit-btn.active,
+.compound .period-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.compound .result-section {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.compound .result-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.compound .result-card {
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.compound .result-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.compound .result-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.compound .result-value.primary {
+  color: #667eea;
+}
+
+.compound .result-unit-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.compound .result-unit-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.compound .result-unit-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.compound .compound-chart-wrap {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  min-height: 280px;
+}
+
+.compound .yearly-table-wrap {
+  overflow-x: auto;
+}
+
+.compound .yearly-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.compound .yearly-table th,
+.compound .yearly-table td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.compound .yearly-table th {
+  font-weight: 700;
+  color: #667eea;
+  background: #f9fafb;
+}
+
+.compound .yearly-table tbody tr.year-boundary {
+  border-top: 2px solid #667eea;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+.compound .yearly-table tbody tr.year-boundary-expandable {
+  cursor: pointer;
+}
+
+.compound .yearly-table tbody tr.year-boundary-expandable:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(118, 75, 162, 0.12) 100%);
+}
+
+.compound .yearly-table tbody tr.year-boundary td {
+  padding: 0.75rem 0.75rem;
+}
+
+.compound .yearly-table tbody tr.year-boundary td:first-child {
+  color: #667eea;
+}
+
+.compound .yearly-table .year-toggle {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+  color: #667eea;
+}
+
+.compound .yearly-table .year-label {
+  font-weight: 700;
+}
+
+.compound .yearly-table tbody tr:not(.year-boundary) {
+  background: white;
+}
+
+.compound .yearly-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.compound .result-placeholder {
+  color: #9ca3af;
+  margin: 0;
+}

@@ -1,0 +1,613 @@
+.asset-review-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 1rem 4rem 1rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  position: relative;
+}
+
+.asset-review-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.asset-review-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #ffffff, #e0e7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.asset-review-header .subtitle {
+  font-size: 1.125rem;
+  opacity: 0.9;
+}
+
+.asset-review-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .asset-review-content {
+    /* 좌측 입력 450px, 우측 분석결과 675px(1.5배) */
+    grid-template-columns: 450px 675px;
+    gap: 2rem;
+    justify-content: start;
+  }
+}
+
+.asset-review-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.asset-review-results {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+.asset-review-container .calculator-input-panel,
+.asset-review-container .calculator-result-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.asset-review-results > * {
+  width: 100%;
+  min-width: 0;
+}
+
+.input-section {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.label-icon {
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.label-text {
+  font-weight: 700;
+  color: #1f2937;
+  flex-shrink: 0;
+}
+
+.label-description {
+  font-weight: 400;
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.input-description {
+  font-size: 0.8125rem;
+  color: #718096;
+  margin-top: 0;
+  line-height: 1.2;
+  padding-top: 0;
+}
+
+/* === InputForm-style controls (namespaced) === */
+.asset-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.asset-input-group .input-label {
+  margin-bottom: 0.5rem;
+}
+
+.asset-input-group .asset-input-row {
+  margin-bottom: 0;
+}
+
+.asset-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.asset-input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  padding: 0.625rem 1rem;
+}
+
+.asset-input-wrapper:focus-within {
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.asset-form-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #2d3748;
+  outline: none;
+  padding-right: 2.5rem;
+}
+
+.asset-form-input::placeholder {
+  color: #a0aec0;
+}
+
+/* Remove native number spinners (keep our external ▲▼) */
+.asset-form-input[type="number"]::-webkit-inner-spin-button,
+.asset-form-input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.asset-form-input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.asset-input-buttons {
+  position: absolute;
+  right: 6px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.asset-input-btn {
+  width: 24px;
+  height: 18px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  color: #6b7280;
+  font-size: 0.65rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
+  line-height: 1;
+}
+
+.asset-input-btn:hover {
+  background: #f3f4f6;
+  border-color: #cbd5e1;
+  color: #1f2937;
+}
+
+.asset-input-btn-up {
+  border-radius: 4px 4px 0 0;
+  border-bottom: none;
+}
+
+.asset-input-btn-down {
+  border-radius: 0 0 4px 4px;
+}
+
+.asset-input-suffix {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b7280;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.total-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+.total-label {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.total-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.analysis-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  width: 100%;
+  min-width: 0;
+}
+
+.analysis-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.analysis-card.highlight {
+  background: white;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.analysis-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 1.5rem;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pie-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.pie-chart {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.pie-legend-row {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  color: #4a5568;
+}
+
+.pie-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.pie-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pie-percent {
+  font-weight: 700;
+  color: #667eea;
+}
+
+.pie-value {
+  grid-column: 2 / 4;
+  font-size: 0.875rem;
+  color: #718096;
+  margin-left: 22px; /* align under label */
+}
+
+.pie-tooltip {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 0.6rem 0.75rem;
+}
+
+.pie-tooltip-title {
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.pie-tooltip-value {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.category-percentage {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.category-bar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.category-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.category-value {
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+.ratio-display {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.ratio-status {
+  margin-bottom: 1rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.status-good {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.status-warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.ratio-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.ratio-description {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+
+.ratio-description strong {
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.status-message {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.status-message.good {
+  color: #059669;
+}
+
+.status-message.warning {
+  color: #d97706;
+}
+
+.ratio-reference {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.ratio-reference small {
+  font-size: 0.8125rem;
+  color: #6b7280;
+}
+
+.empty-results {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  width: 100%;
+}
+
+.empty-results-content {
+  text-align: center;
+  color: #718096;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.empty-results-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.empty-results-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #718096;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .asset-review-container {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .asset-review-header h1 {
+    font-size: 2rem;
+  }
+
+  .input-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .input-section {
+    padding: 1.5rem;
+  }
+
+  .analysis-card {
+    padding: 1.5rem;
+  }
+
+  .analysis-section {
+    position: static;
+  }
+
+  .pie-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .asset-review-container {
+    padding: 3rem 0.5rem;
+  }
+
+  .asset-review-header {
+    margin-bottom: 2rem;
+  }
+
+  .asset-review-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .asset-review-header .subtitle {
+    font-size: 1rem;
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .input-section {
+    padding: 1.25rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .total-display {
+    padding: 1rem;
+  }
+
+  .total-label {
+    font-size: 1rem;
+  }
+
+  .total-value {
+    font-size: 1.25rem;
+  }
+
+  .analysis-card {
+    padding: 1.25rem;
+  }
+
+  .ratio-value {
+    font-size: 2.25rem;
+  }
+}

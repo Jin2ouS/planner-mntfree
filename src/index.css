@@ -1,0 +1,109 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #213547;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 공통: 계산기 패널 제목 (입력하기 / 결과보기) */
+.calculator-container .panel-title,
+.asset-review-container .panel-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  padding: 1rem 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: inherit;
+  border: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.calculator-container .panel-title-input,
+.asset-review-container .panel-title-input {
+  color: #5b21b6;
+  border-color: #c4b5fd;
+  background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+}
+
+.calculator-container .panel-title-result,
+.asset-review-container .panel-title-result {
+  color: #0d9488;
+  border-color: #99f6e4;
+  background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 100%);
+}
+
+.calculator-container .section-icon,
+.asset-review-container .section-icon {
+  margin-right: 0.35rem;
+}
+
+/* 공통: 입력 패널 하단 계산하기/초기화 버튼 그룹 */
+.calc-btn-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.calc-btn-group .btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.875rem 1.25rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.calc-btn-group .btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.calc-btn-group .btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.calc-btn-group .btn-secondary {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.calc-btn-group .btn-secondary:hover {
+  background: #e5e7eb;
+}

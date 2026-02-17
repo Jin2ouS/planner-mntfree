@@ -1,0 +1,66 @@
+.calculator-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 1rem 4rem 1rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+}
+
+.calculator-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+}
+
+.calculator-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-header .subtitle {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+.calculator-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.calculator-input-panel,
+.calculator-result-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .calculator-content {
+    /* 입력 450px, 결과 1.5배(675px) 고정으로 입력 전에도 결과 영역 넓이 유지 */
+    grid-template-columns: 450px 675px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .calculator-container {
+    padding: 3rem 0.5rem;
+  }
+
+  .calculator-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .calculator-header .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .calculator-header {
+    margin-bottom: 2rem;
+  }
+}

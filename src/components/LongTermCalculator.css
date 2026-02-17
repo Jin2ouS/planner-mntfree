@@ -1,0 +1,620 @@
+.longterm .calculator-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* 패널 제목 색상/배경은 index.css의 panel-title-input, panel-title-result 사용 */
+.longterm .panel-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .longterm .calculator-content {
+    grid-template-columns: 450px 675px;
+    justify-content: center;
+  }
+}
+
+.longterm .calculator-input-panel,
+.longterm .calculator-result-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.longterm .input-section {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* 결과보기 섹션별 카드 - 입력하기 .input-section 과 동일한 스타일 */
+.longterm .result-block-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.longterm .result-block-card-spaced {
+  margin-top: 2rem;
+}
+
+.longterm .section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #667eea;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.longterm .period-buttons,
+.longterm .period-quick-buttons,
+.longterm .purchase-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.longterm .index-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.longterm .index-options-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.longterm .period-quick-buttons {
+  margin-top: 1rem;
+}
+
+.longterm .period-btn,
+.longterm .index-btn,
+.longterm .purchase-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  background: white;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.longterm .index-btn {
+  min-width: 5.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  line-height: 1.2;
+}
+
+.longterm .index-btn-en {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.longterm .index-btn-ko {
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.longterm .period-btn:hover,
+.longterm .index-btn:hover,
+.longterm .purchase-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.longterm .period-btn.active,
+.longterm .index-btn.active,
+.longterm .purchase-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.longterm .range-section {
+  margin-top: 1rem;
+}
+
+.longterm .range-section .input-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+}
+
+.longterm .range-hint {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0 0 0.5rem;
+}
+
+.longterm .range-dual-wrap {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  margin-top: 0.5rem;
+}
+
+.longterm .range-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.longterm .range-fill {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 5px;
+  pointer-events: none;
+  transition: left 0.05s ease, width 0.05s ease;
+}
+
+.longterm .range-body-drag {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  cursor: grab;
+  border-radius: 4px;
+}
+
+.longterm .range-body-drag:active {
+  cursor: grabbing;
+}
+
+.longterm .range-thumb {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.longterm .range-thumb:hover {
+  transform: scale(1.1);
+}
+
+.longterm .range-thumb:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.4);
+}
+
+.longterm .year-select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.longterm .year-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.longterm .year-select-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.longterm .year-select-cell {
+  flex: 1;
+  min-width: 0;
+}
+
+.longterm .year-select-cell .input-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+}
+
+.longterm .range-input {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  accent-color: #667eea;
+}
+
+.longterm .range-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 0.25rem;
+}
+
+.longterm .amount-input-group {
+  margin-top: 1rem;
+}
+
+.longterm .amount-input-group .input-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+}
+
+.longterm .amount-input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.longterm .amount-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.longterm .amount-input:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.longterm .duration-display {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #f3f4f6;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* 분석 결과 각 항목 라벨 - 입력하기의 '투자 대상'과 동일한 폰트·구분선 */
+.longterm .result-block-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #667eea;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+.longterm .result-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.longterm .result-card {
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.longterm .result-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.longterm .result-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.longterm .result-value.primary {
+  color: #667eea;
+}
+
+.longterm .result-value.negative {
+  color: #ef4444;
+}
+
+.longterm .result-note {
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.longterm .result-note a {
+  color: #667eea;
+  word-break: break-all;
+}
+
+.longterm .result-note code {
+  font-size: 0.75rem;
+  background: #f3f4f6;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+}
+
+.longterm .period-detail-section {
+  margin-top: 1.5rem;
+}
+
+
+.longterm .period-detail-table-wrap {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.longterm .period-detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.longterm .period-detail-table th,
+.longterm .period-detail-table td {
+  padding: 0.5rem 0.75rem;
+  text-align: right;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.longterm .period-detail-table th:first-child,
+.longterm .period-detail-table td:first-child {
+  text-align: left;
+}
+
+.longterm .period-detail-table thead th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.longterm .period-detail-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.longterm .period-detail-table .positive {
+  color: #059669;
+}
+
+.longterm .period-detail-table .negative {
+  color: #dc2626;
+}
+
+.longterm .yearly-data-section {
+  margin-top: 1rem;
+}
+
+
+.longterm .yearly-data-ticker {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0 0 0.5rem 0;
+}
+
+.longterm .yearly-data-desc {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0 0 0.5rem 0;
+}
+
+.longterm .yearly-data-table-wrap {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.longterm .yearly-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.longterm .yearly-data-table th,
+.longterm .yearly-data-table td {
+  padding: 0.5rem 0.75rem;
+  text-align: right;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.longterm .yearly-data-table th:first-child,
+.longterm .yearly-data-table td:first-child {
+  text-align: left;
+}
+
+.longterm .yearly-data-table thead th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.longterm .yearly-data-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.longterm .yearly-data-table .positive {
+  color: #059669;
+}
+
+.longterm .yearly-data-table .negative {
+  color: #dc2626;
+}
+
+.longterm .index-calc-btn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 0.5rem;
+}
+
+.longterm .index-calc-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+}
+
+.longterm .index-chart-wrap {
+  margin: 1.5rem 0 1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.longterm .index-chart-wrap .result-block-label {
+  text-align: left;
+}
+
+.longterm .chart-data-note {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.longterm .chart-data-note strong {
+  color: #374151;
+}
+
+.longterm .result-placeholder {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  margin: 0;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.longterm .returns-table-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.longterm .returns-table-wrap .result-block-label {
+  margin-bottom: 1rem;
+}
+
+.longterm .returns-table-scroll {
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+}
+
+.longterm .returns-no-data {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 1rem;
+  text-align: center;
+}
+
+.longterm .returns-block {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.longterm .returns-block:last-child {
+  margin-bottom: 0;
+}
+
+.longterm .returns-block-header {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.longterm .returns-block-icon {
+  color: #667eea;
+  font-size: 0.75rem;
+}
+
+.longterm .returns-block-note {
+  font-weight: 500;
+  color: #6b7280;
+  font-size: 0.8rem;
+  margin-left: 0.25rem;
+}
+
+.longterm .returns-block-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.longterm .returns-block-th {
+  text-align: left;
+  padding: 0.35rem 0.5rem 0.35rem 0;
+  font-weight: 600;
+  color: #4b5563;
+  width: 2.5em;
+}
+
+.longterm .returns-block-td {
+  padding: 0.35rem 0.5rem;
+  text-align: center;
+  color: #374151;
+}
+
+.longterm .returns-block-td.positive {
+  color: #059669;
+  font-weight: 600;
+}
+
+.longterm .returns-block-td.negative {
+  color: #dc2626;
+  font-weight: 600;
+}
